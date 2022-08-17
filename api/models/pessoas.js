@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      //Se eu não colocar o nome da FK o Sequelize por padrão coloca PessoasId. Nome da tabela + Id. Ex: PessoasId  
+      Pessoas.hasMany(models.Turmas, {foreignKey: 'docente_id'});
+      Pessoas.hasMany(models.Matriculas, {foreignKey: 'estudante_id'});
     }
   }
   Pessoas.init({

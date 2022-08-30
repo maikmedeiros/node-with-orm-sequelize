@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -10,46 +10,50 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-    return queryInterface.bulkInsert('Turmas', [
-			{
-				data_inicio: "2020-02-01",
-				nivel_id: 1,
-				docente_id: 4,
-				createdAt: new Date(),
-				updatedAt: new Date()				 
-			},
-			{
-				data_inicio: "2020-02-01",
-				nivel_id: 2,
-				docente_id: 5,
-				createdAt: new Date(),
-				updatedAt: new Date()			
-			},
-			{
-				data_inicio: "2020-02-01",
-				nivel_id: 3,
-				docente_id: 4,
-				createdAt: new Date(),
-				updatedAt: new Date()			
-				},
-			{
-				data_inicio: "2020-07-01",
-				nivel_id: 3,
-				docente_id: 4,
-				createdAt: new Date(),
-				updatedAt: new Date()			
-			}
-		], {})
+     */
+    return queryInterface.bulkInsert(
+      "Turmas",
+      [
+        {
+          data_inicio: "2020-02-01",
+          nivel_id: 1,
+          docente_id: 4,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          data_inicio: "2020-02-01",
+          nivel_id: 2,
+          docente_id: 5,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          data_inicio: "2020-02-01",
+          nivel_id: 3,
+          docente_id: 4,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          data_inicio: "2020-07-01",
+          nivel_id: 3,
+          docente_id: 4,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      {}
+    );
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     return queryInterface.bulkDelete('Turmas', null, {})
-  }
+    return queryInterface.bulkDelete("Turmas", null, {});
+  },
 };

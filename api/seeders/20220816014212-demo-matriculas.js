@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -10,53 +10,57 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-     return queryInterface.bulkInsert('Matriculas', [
-      {
+     */
+    return queryInterface.bulkInsert(
+      "Matriculas",
+      [
+        {
           status: "confirmado",
           estudante_id: 1,
           turma_id: 1,
           createdAt: new Date(),
-          updatedAt: new Date()
-      },
-      {
-        status: "confirmado",
-        estudante_id: 2,
-        turma_id: 1,
-        createdAt: new Date(),
-        updatedAt: new Date()
-    },
-    {
-        status: "confirmado",
-        estudante_id: 3,
-        turma_id: 2,
-        createdAt: new Date(),
-        updatedAt: new Date()
-    },
-    {
-        status: "cancelado",
-        estudante_id: 1,
-        turma_id: 2,
-        createdAt: new Date(),
-        updatedAt: new Date()
-    },
-    {
-      status: "cancelado",
-      estudante_id: 2,
-      turma_id: 2,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }
-    ], {})
+          updatedAt: new Date(),
+        },
+        {
+          status: "confirmado",
+          estudante_id: 2,
+          turma_id: 1,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          status: "confirmado",
+          estudante_id: 3,
+          turma_id: 2,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          status: "cancelado",
+          estudante_id: 1,
+          turma_id: 2,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          status: "cancelado",
+          estudante_id: 2,
+          turma_id: 2,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      {}
+    );
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     return queryInterface.bulkDelete('Matriculas', null, {})
-  }
+    return queryInterface.bulkDelete("Matriculas", null, {});
+  },
 };

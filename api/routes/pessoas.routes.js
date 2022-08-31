@@ -5,8 +5,8 @@ const router = Router();
 
 //Como declarei o método como static, não preciso instanciar o objeto para utilizar o método. -- new PessoaController()
 
-router.get("/pessoas", PessoaController.getAllPeoples);
-router.get("/pessoas/ativas", PessoaController.getAllPeoplesActives);
+router.get("/pessoas", PessoaController.getAllPeople);
+router.get("/pessoas/ativas", PessoaController.getAllPeopleActives);
 router.get("/pessoas/:id", PessoaController.getOnePerson);
 router.post("/pessoas", PessoaController.createPerson);
 router.put("/pessoas/:id", PessoaController.updatePerson);

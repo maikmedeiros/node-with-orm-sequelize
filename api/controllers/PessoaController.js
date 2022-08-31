@@ -1,12 +1,15 @@
 // Qaundo a rota escrita conforme abaixo o JavaScript por padrão já procura um arquivo chamado index.
 const database = require("../models");
 const Sequelize = require("sequelize");
+//Usando arquiterura de serviços, para não ficar repetindo código e pensando no crescimento do código.
+const { PessoasServices } = require("../services");
+const PeopleServices = new PessoasServices();
 
 //Quando declaro o método como static, não preciso instanciar o objeto para utilizar o método.
 
 class PessoaController {
   //Metodo para pegar todas as pessoas
-  static async getAllPeoples(req, res) {
+  static async getAllPeople(req, res) {
     try {
       const allPessoas = await database.Pessoas.scope("all").findAll();
       return res.status(200).json(allPessoas);
@@ -14,9 +17,10 @@ class PessoaController {
       return res.status(500).json({ error: error.message });
     }
   }
-  static async getAllPeoplesActives(req, res) {
+  static async getAllPeopleActives(req, res) {
     try {
-      const allPessoas = await database.Pessoas.findAll();
+      // const allPessoas = await database.Pessoas.findAll();
+      const allPessoas = await PeopleServices.getAllRecordsActives();
       return res.status(200).json(allPessoas);
     } catch (error) {
       return res.status(500).json({ error: error.message });
